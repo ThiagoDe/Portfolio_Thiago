@@ -1,8 +1,4 @@
-/*
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
+
 
 (function($) {
 
@@ -256,3 +252,46 @@
 		}
 
 })(jQuery);
+
+// session hidden 
+const allSections = document.querySelectorAll("article")
+const allTimelines = document.querySelectorAll(".cd-timeline-block")
+
+const revealSection = function(entries, observer) {
+	const [entry] = entries
+	if (!entry.isIntersecting) return
+	entry.target.classList.remove('session--hidden')
+	entry.target.classList.add('transition1')
+	observer.unobserve(entry.target)
+}
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+	root: null,
+	threshold: 0.15,
+})
+
+allSections.forEach(function(article) {
+	sectionObserver.observe(article)
+	article.classList.add('session--hidden')
+	
+})
+
+const revealTimeline = function(entries, observer) {
+	const [entry] = entries
+	if (!entry.isIntersecting) return
+	entry.target.classList.remove('session--hidden')
+	entry.target.classList.add('transition1')
+	observer.unobserve(entry.target)
+}
+
+const timelineObserver = new IntersectionObserver(revealSection, {
+	root: null,
+	threshold: 0.15,
+})
+
+allTimelines.forEach(function (article) {
+  sectionObserver.observe(article)
+  article.classList.add('session--hidden')
+})
+
+console.log(allTimelines)

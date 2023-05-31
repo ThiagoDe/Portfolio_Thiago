@@ -5242,3 +5242,21 @@ p {
 	text-align: justify;
 	margin: 0 0 2rem 0;
 }
+
+.session--hidden {
+	opacity: 0;
+	transform: translateY(8rem);
+}
+
+.transition1 {
+    animation: fade-in 0.4s ease-in-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

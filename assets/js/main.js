@@ -294,4 +294,3 @@ allTimelines.forEach(function (article) {
   article.classList.add('session--hidden')
 })
 
-console.log(allTimelines)
